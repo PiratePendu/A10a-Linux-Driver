@@ -1,0 +1,17 @@
+# Binaire compilé
+/rastertolabel-linux
+
+# Sauvegardes locales
+*.bak
+*.backup
+*.pre-*
+*.validated-*
+
+# Fichiers temporaires
+*~
+*.swp
+*.tmp
+
+# Fichiers système / éditeurs
+.DS_Store
+Thumbs.db
