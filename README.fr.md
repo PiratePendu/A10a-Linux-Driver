@@ -112,6 +112,12 @@ CUPS signale également que les pilotes traditionnels basés sur des fichiers PP
 - `locales/` : catalogues de traduction
 - `versions/` : archives des versions précédentes
 
+## Licence
+
+Ce projet est distribué sous licence MIT. Voir [LICENSE](LICENSE).
+
+Cette licence s'applique également au code source contenu dans les versions archivées sous `versions/`, y compris aux versions publiées avant l'ajout du fichier `LICENSE` au dépôt.
+
 ## Statut
 
 Projet expérimental développé à partir de tests réalisés sur une PeriPage A10a réelle.

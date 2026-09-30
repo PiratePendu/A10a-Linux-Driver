@@ -112,6 +112,12 @@ CUPS also reports that traditional PPD-based printer drivers are deprecated and 
 - `locales/`: translation catalogs
 - `versions/`: archived versions
 
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE).
+
+This license also applies to the source code contained in the archived versions under `versions/`, including versions published before the `LICENSE` file was added to the repository.
+
 ## Status
 
 Experimental project developed through testing with a real PeriPage A10a printer.
