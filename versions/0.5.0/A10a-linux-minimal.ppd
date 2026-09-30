@@ -1,0 +1,101 @@
+*PPD-Adobe: "4.3"
+*FormatVersion: "4.3"
+*FileVersion: "1.0"
+*LanguageVersion: English
+*LanguageEncoding: ISOLatin1
+*PCFileName: "A10AMIN.PPD"
+*Manufacturer: "ShippingPrinter"
+*Product: "(A10a)"
+*ModelName: "A10a"
+*ShortNickName: "A10a"
+*NickName: "ShippingPrinter A10a"
+*PSVersion: "(3010.000) 550"
+*ColorDevice: True
+*DefaultColorSpace: RGB
+*cupsVersion: 1.7
+*cupsManualCopies: True
+*cupsFilter: "application/vnd.cups-raster 0 rastertoa10a"
+
+*OpenUI *PageSize/Media Size: PickOne
+*OrderDependency: 10 AnySetup *PageSize
+*DefaultPageSize: Letter.Fullbleed
+*PageSize Letter.Fullbleed/US Letter 8.5x11 in: "<</PageSize[612 792]/ImagingBBox null>>setpagedevice"
+*PageSize A4.Fullbleed/A4 210x297 mm: "<</PageSize[595 842]/ImagingBBox null>>setpagedevice"
+*CloseUI: *PageSize
+
+*OpenUI *PageRegion/Media Size: PickOne
+*OrderDependency: 10 AnySetup *PageRegion
+*DefaultPageRegion: Letter.Fullbleed
+*PageRegion Letter.Fullbleed/US Letter 8.5x11 in: "<</PageSize[612 792]/ImagingBBox null>>setpagedevice"
+*PageRegion A4.Fullbleed/A4 210x297 mm: "<</PageSize[595 842]/ImagingBBox null>>setpagedevice"
+*CloseUI: *PageRegion
+
+*DefaultImageableArea: Letter.Fullbleed
+*ImageableArea Letter.Fullbleed/US Letter 8.5x11 in: "6 0 606 792"
+*ImageableArea A4.Fullbleed/A4 210x297 mm: "6 0 589 842"
+
+*DefaultPaperDimension: Letter.Fullbleed
+*PaperDimension Letter.Fullbleed/US Letter 8.5x11 in: "612 792"
+*PaperDimension A4.Fullbleed/A4 210x297 mm: "595 842"
+
+*MaxMediaWidth: "612"
+*MaxMediaHeight: "842"
+*HWMargins: 0 0 0 0
+
+*OpenUI *Resolution/Resolution: PickOne
+*OrderDependency: 10 AnySetup *Resolution
+*DefaultResolution: 203x203dpi
+*Resolution 203x203dpi/203 dpi: "<</HWResolution[203 203]/cupsRowCount 8/cupsRowFeed 0/cupsRowStep 0>>setpagedevice"
+*CloseUI: *Resolution
+
+*OpenGroup: PrinterSettings/Printer Settings
+
+*OpenUI *zeMediaTracking/Media Type: PickOne
+*OrderDependency: 20 AnySetup *zeMediaTracking
+*DefaultzeMediaTracking: Stock
+*zeMediaTracking Stock/Rolled Paper: ""
+*zeMediaTracking Perforated/Perforated Paper: ""
+*CloseUI: *zeMediaTracking
+
+*OpenUI *Darkness/Density: PickOne
+*OrderDependency: 20 AnySetup *Darkness
+*DefaultDarkness: 2
+*Darkness Default/Default: ""
+*Darkness 0: ""
+*Darkness 1: ""
+*Darkness 2: ""
+*Darkness 3: ""
+*Darkness 4: ""
+*CloseUI: *Darkness
+
+*CloseGroup: PrinterSettings
+
+*OpenUI *ColorModel/Color Model: PickOne
+*OrderDependency: 10 AnySetup *ColorModel
+*DefaultColorModel: RGB
+*ColorModel RGB/Color: "<</cupsColorSpace 1/cupsBitsPerColor 8/cupsBitsPerPixel 24/cupsColorOrder 0/cupsCompression 0>>setpagedevice"
+*CloseUI: *ColorModel
+
+*OpenUI *MediaAlign/Media Align: PickOne
+*OrderDependency: 20 AnySetup *MediaAlign
+*DefaultMediaAlign: Center
+*MediaAlign Left/Left: ""
+*MediaAlign Center/Center: ""
+*MediaAlign Right/Right: ""
+*CloseUI: *MediaAlign
+
+*OpenUI *FeedOffset/Paper Feeding: PickOne
+*OrderDependency: 160 AnySetup *FeedOffset
+*DefaultFeedOffset: 0
+*FeedOffset 0/0mm: ""
+*FeedOffset 1/1mm: ""
+*FeedOffset 2/2mm: ""
+*FeedOffset 3/3mm: ""
+*FeedOffset 4/4mm: ""
+*FeedOffset 5/5mm: ""
+*FeedOffset 6/6mm: ""
+*FeedOffset 7/7mm: ""
+*FeedOffset 8/8mm: ""
+*FeedOffset 9/9mm: ""
+*FeedOffset 10/10mm: ""
+*CloseUI: *FeedOffset
