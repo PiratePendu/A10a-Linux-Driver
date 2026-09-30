@@ -52,6 +52,13 @@ int main(int argc, char **argv)
 
     int media_command = (media_mode == 3) ? 3 : 1;
 
+    int dither_mode = 0;
+    const char *dither_opt =
+        cupsGetOption("DitherMode", num_options, options);
+
+    if (dither_opt && strcmp(dither_opt, "FloydSteinberg") == 0)
+        dither_mode = 1;
+
     if (argc != 6 && argc != 7 && argc != 8) {
         fprintf(stderr,
                 "usage: %s <density> <width> <height> <copies> <device> <raster> <output>\\n",
@@ -112,10 +119,22 @@ int main(int argc, char **argv)
         unsigned char *line = malloc(h.cupsBytesPerLine);
         unsigned char *bitmap = malloc((size_t)out_bpl * height);
 
-        if (!line || !bitmap) {
+        double *error_current = NULL;
+        double *error_next = NULL;
+
+        if (dither_mode && h.cupsBitsPerPixel == 24) {
+            error_current = calloc((size_t)width + 2, sizeof(double));
+            error_next = calloc((size_t)width + 2, sizeof(double));
+        }
+
+        if (!line || !bitmap ||
+        (dither_mode && h.cupsBitsPerPixel == 24 &&
+         (!error_current || !error_next))) {
             fprintf(stderr, "out of memory\\n");
             free(line);
             free(bitmap);
+            free(error_current);
+            free(error_next);
 
             cupsRasterClose(ras);
             if (rf != stdin)
@@ -139,6 +158,8 @@ int main(int argc, char **argv)
 
                 free(line);
                 free(bitmap);
+                free(error_current);
+                free(error_next);
 
                 cupsRasterClose(ras);
                 if (rf != stdin)
@@ -169,7 +190,34 @@ int main(int argc, char **argv)
                     unsigned gray =
                         (299 * r + 587 * g + 114 * b) / 1000;
 
-                    bit = (gray >= 128);
+                    if (dither_mode) {
+                        double old_pixel =
+                            (double)gray + error_current[x + 1];
+
+                        if (old_pixel < 0.0)
+                            old_pixel = 0.0;
+                        else if (old_pixel > 255.0)
+                            old_pixel = 255.0;
+
+                        double new_pixel =
+                            (old_pixel >= 128.0) ? 255.0 : 0.0;
+                        double error = old_pixel - new_pixel;
+
+                        bit = (new_pixel >= 128.0);
+
+                        /*
+                         * Floyd-Steinberg:
+                         *
+                         *          X   7/16
+                         *   3/16  5/16 1/16
+                         */
+                        error_current[x + 2] += error * 7.0 / 16.0;
+                        error_next[x]        += error * 3.0 / 16.0;
+                        error_next[x + 1]    += error * 5.0 / 16.0;
+                        error_next[x + 2]    += error * 1.0 / 16.0;
+                    } else {
+                        bit = (gray >= 128);
+                    }
                 }
 
                 /*
@@ -183,6 +231,15 @@ int main(int argc, char **argv)
                     bitmap[(size_t)y * out_bpl + (x >> 3)]
                         &= (unsigned char)~(1u << (7 - (x & 7)));
                 }
+            }
+
+            if (dither_mode && h.cupsBitsPerPixel == 24) {
+                double *tmp = error_current;
+                error_current = error_next;
+                error_next = tmp;
+
+                memset(error_next, 0,
+                       ((size_t)width + 2) * sizeof(double));
             }
 
             /*
@@ -262,6 +319,8 @@ int main(int argc, char **argv)
          */
         free(bitmap);
         free(line);
+        free(error_current);
+        free(error_next);
     }
 
 

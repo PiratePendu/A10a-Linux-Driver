@@ -76,6 +76,13 @@
 *ColorModel RGB/Color: "<</cupsColorSpace 1/cupsBitsPerColor 8/cupsBitsPerPixel 24/cupsColorOrder 0/cupsCompression 0>>setpagedevice"
 *CloseUI: *ColorModel
 
+*OpenUI *DitherMode/Image Mode: PickOne
+*OrderDependency: 10 AnySetup *DitherMode
+*DefaultDitherMode: Threshold
+*DitherMode Threshold/Threshold: ""
+*DitherMode FloydSteinberg/Floyd-Steinberg: ""
+*CloseUI: *DitherMode
+
 *OpenUI *MediaAlign/Media Align: PickOne
 *OrderDependency: 20 AnySetup *MediaAlign
 *DefaultMediaAlign: Center
