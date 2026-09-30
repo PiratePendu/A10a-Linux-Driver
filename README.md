@@ -2,7 +2,7 @@
 
 Experimental CUPS driver for the **PeriPage A10a** thermal printer on Linux.
 
-Current version: **0.5.1**
+Current version: **0.6.0**
 
 **English | [Français](README.fr.md)**
 
@@ -23,8 +23,9 @@ Validated features:
 - localized installation and uninstallation scripts;
 - automatic language selection from the system environment;
 - automatic fallback to English when the system language is not available.
+- Image dithering modes: Threshold (default) and Floyd-Steinberg
 
-Version **0.5.1** has been successfully tested with both USB and Bluetooth printing.
+Version **0.6.0** has been successfully tested with USB and Bluetooth printing. Threshold mode preserves the previous black-and-white rendering, while Floyd-Steinberg dithering has been successfully tested for grayscale image rendering over Bluetooth.
 
 ## Languages
 
@@ -94,6 +95,7 @@ Published versions of the driver are preserved in the `versions/` directory and 
 - 0.4.0: Bluetooth support
 - 0.5.0: English and French localization
 - 0.5.1: localization extended to 11 languages
+- 0.6.0: added Floyd-Steinberg dithering for grayscale image rendering
 
 ## Compatibility
 
@@ -122,4 +124,4 @@ This license also applies to the source code contained in the archived versions 
 
 Experimental project developed through testing with a real PeriPage A10a printer.
 
-Version **0.5.1** is currently the stable tested version of the project.
+Version **0.6.0** is currently the stable tested version of the project.

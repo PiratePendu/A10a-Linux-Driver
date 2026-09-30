@@ -7,7 +7,7 @@ PPD="$DRIVER_DIR/A10a-linux-minimal.ppd"
 FILTER="/usr/lib/cups/filter/rastertoa10a"
 PRINTER="A10a"
 BT_PRINTER="A10a-Bluetooth"
-DRIVER_VERSION="0.5.1"
+DRIVER_VERSION="0.6.0"
 
 # ------------------------------------------------------------
 # Langue / traductions

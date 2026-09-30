@@ -2,7 +2,7 @@
 
 Pilote CUPS expérimental pour l'imprimante thermique **PeriPage A10a** sous Linux.
 
-Version actuelle : **0.5.1**
+Version actuelle : **0.6.0**
 
 **[English](README.md) | Français**
 
@@ -23,8 +23,9 @@ Fonctionnalités validées :
 - scripts d'installation et de désinstallation localisés ;
 - sélection automatique de la langue à partir de l'environnement système ;
 - repli automatique vers l'anglais lorsqu'une langue n'est pas disponible.
+- Modes de tramage d'image : Threshold (par défaut) et Floyd-Steinberg
 
-La version **0.5.1** a été testée avec succès en USB et en Bluetooth.
+La version **0.6.0** a été testée avec succès en USB et en Bluetooth. Le mode Threshold conserve le rendu noir et blanc précédent, tandis que le tramage Floyd-Steinberg a été testé avec succès pour le rendu d'images en niveaux de gris via Bluetooth.
 
 ## Langues
 
@@ -94,6 +95,7 @@ Les versions publiées du pilote sont conservées dans le dossier `versions/` et
 - 0.4.0 : prise en charge Bluetooth
 - 0.5.0 : ajout de la localisation française et anglaise
 - 0.5.1 : localisation étendue à 11 langues
+- 0.6.0 : ajout du tramage Floyd-Steinberg pour le rendu d'images en niveaux de gris
 
 ## Compatibilité
 
@@ -122,4 +124,4 @@ Cette licence s'applique également au code source contenu dans les versions arc
 
 Projet expérimental développé à partir de tests réalisés sur une PeriPage A10a réelle.
 
-La version **0.5.1** constitue actuellement la version stable testée du projet.
+La version **0.6.0** constitue actuellement la version stable testée du projet.

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-DRIVER_VERSION="0.5.1"
+DRIVER_VERSION="0.6.0"
 PRINTER="A10a"
 BT_PRINTER="A10a-Bluetooth"
 FILTER="/usr/lib/cups/filter/rastertoa10a"
